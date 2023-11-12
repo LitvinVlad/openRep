@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import filedialog
 
+from video_info import * 
+
 class MainApplication(Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
@@ -73,8 +75,8 @@ class MainApplication(Frame):
         root.destroy()
 
     def AnalyzeVideo(self, event):
-        # for file_path in path_list:
-        #     do_magic(file_path)
+        for file_path in path_list:
+            get_video_info(file_path)
         return
 
 path_list = []
