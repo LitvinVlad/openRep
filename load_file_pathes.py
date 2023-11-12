@@ -55,7 +55,7 @@ class MainApplication(Frame):
         if files_added:
             self.Text.config(state='normal')
             self.Text.delete('1.0', 'end') 
-            self.Text.insert('1.0', '\n'.join('X ' + tmp_path for tmp_path in path_list))
+            self.Text.insert('1.0', '\n'.join(tmp_path for tmp_path in path_list))
             self.Text.config(state='disabled')
          
     def deleteLine(self, event):
@@ -63,7 +63,7 @@ class MainApplication(Frame):
         self.Text.config(state='normal')
         self.Text.delete('current linestart', 'current lineend+1c')     
         self.Text.config(state='disabled')
-        x = x[2:-1]
+        x = x[:-1]
         path_list.remove(x)
         path_list_set.remove(x)
         return "break" # uncomment if you want to disable selection caused by double-clicking
